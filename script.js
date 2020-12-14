@@ -12,3 +12,61 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+//Define variables 
+
+var passwordLength 
+
+//Define arrays for data
+
+upperCaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+numericCharArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
+specialCharArray = 
+
+//Store input from buttons
+
+var lowerCaseInput
+var upperCaseInput
+var numericCharInput
+var specialCharInput
+
+// random number for loop
+
+var randomNumber
+
+// define function for generating random number 0-3
+
+function randomNumberGenerator() {
+	randomNumber = Math.floor(Math.random() * 4)
+	console.log(randomNumber)
+}
+
+
+// loop for generating password characters. 
+
+For (var i = 0; i < passwordLength; i++) {
+	// run random number generator
+	randomNumberGenerator()
+
+	// if random number is 0, create upper case
+
+	if (randomNumber === 0) {
+		upperCaseInput = Math.floor(Math.random() * upperCaseArray.length)
+		
+	}
+	
+	
+	// if random number is 1, create upper case
+	
+	
+	// if random number is 2, create number
+	
+	
+	// if random number is 3, create special character
+
+	
+	// add selected character to passwordoutput string
+
+}
