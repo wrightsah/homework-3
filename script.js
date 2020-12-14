@@ -20,15 +20,15 @@ var passwordLength
 
 //Define arrays for data
 
-upperCaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 numericCharArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
 specialCharArray = 
 
 //Store input from buttons
 
-var lowerCaseInput
-var upperCaseInput
+var lowercaseInput
+var uppercaseInput
 var numericCharInput
 var specialCharInput
 
@@ -53,7 +53,7 @@ For (var i = 0; i < passwordLength; i++) {
 	// if random number is 0, create upper case
 
 	if (randomNumber === 0) {
-		upperCaseInput = Math.floor(Math.random() * upperCaseArray.length)
+		uppercaseInput = Math.floor(Math.random() * uppercaseArray.length)
 		
 	}
 	
