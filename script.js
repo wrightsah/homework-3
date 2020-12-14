@@ -14,9 +14,11 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
+
+
 //Define variables 
 
-var passwordLength 
+var passwordLength
 
 //Define arrays for data
 
