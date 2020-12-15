@@ -19,17 +19,79 @@ var passwordLength
 
 //Define arrays for data
 
-var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-var numericCharArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
-var specialCharArray = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"]
+var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var numericCharacterArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; 
+var specialCharacterArray = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 
-//Store input from buttons
+// Function to prompt for password parameters
 
-var lowercaseInput
-var uppercaseInput
-var numericCharInput
-var specialCharInput
+function getPasswordParameters() {
+	var passwordLength = parseInt(
+		prompt("How many characters?")
+	);
+
+	// confirm that passwordLength is a number
+
+	if (isNaN(passwordLength) === true ) {
+		alert("Must be a number.");
+		return;
+	}
+
+	if (passwordLength < 8) {
+		alert("Password must be at least 8 characters.")
+		return;
+	}
+
+	if (passwordLength > 128) {
+		alert("Password may not be more than 128 characters.")
+		return;
+	}
+
+	//Store password parameters from prompts
+
+	var includeLowercase = confirm(
+		"Click OK to include lowercase characters."
+	);
+
+	var includeUppercase = confirm(
+		"Click OK to include uppercase characters."
+	);
+	var includeNumericCharacter = confirm(
+		"Click OK to include numeric characters."
+	);
+	var includeSpecialCharacter = confirm(
+		"Click OK to include special characters."
+	);
+
+	// Ensure input contains at least one necessary parameter
+
+	if (
+		includeLowercase === false &&
+		includeUppercase === false && 
+		includeNumericCharacter === false &&
+		includeSpecialCharacter === false
+	) {
+		alert("Must choose at least one parameter.");
+		return;
+	}
+
+	// Store selected parameters
+
+	var passwordParameters = {
+		passwordLength: passwordLength,
+		includeLowercase: includeLowercase,
+		includeUppercase: includeUppercase,
+		includeNumericCharacter: includeNumericCharacter,
+		includeSpecialCharacter: includeSpecialCharacter,
+	};
+
+	console.log(passwordParameters);
+	return passwordParameters;
+}
+
+
+
 
 // variables for generated characters
 
@@ -69,9 +131,7 @@ For (var i = 0; i < passwordLength; i++) {
 			lowercaseCharacter = lowercaseArray[Math.floor(Math.random() * lowercaseArray.length)];
 			// test if working
 			console.log("Generated LC =" + lowercaseCharacter)
-
-		}
-	 
+		}	 
 	
 	// if random number is 2, get numeric character from array
 		else if (randomNumber === 2) {
@@ -88,5 +148,7 @@ For (var i = 0; i < passwordLength; i++) {
 		}
 	
 	// add selected character to passwordoutput string
+
+
 
 }
