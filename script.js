@@ -36,6 +36,8 @@ function getPasswordParameters() {
 		return;
 	}
 
+	// Set boundaries to ensure character length is between 8 - 128
+
 	if (passwordLength < 8) {
 		alert("Password must be at least 8 characters.")
 		return;
@@ -74,7 +76,7 @@ function getPasswordParameters() {
 		return;
 	}
 
-	// Store selected parameters
+	// Store selected parameters in object
 
 	var passwordParameters = {
 		passwordLength: passwordLength,
@@ -108,7 +110,7 @@ function generatePassword() {
 
 	var requiredParameters = [];
 
-	// determine which characters are going to be part of generated password
+	// determine which characters are going to be part of generated password and generate the character
 
 	if (parameters.includeLowercase) {
 		possibleParameters = possibleParameters.concat(lowercaseArray);
@@ -130,20 +132,20 @@ function generatePassword() {
 		requiredParameters.push(getRandom(specialCharacterArray));
 	}
 	
-	// for loop 1
-	for (var i = 0; i < parameters.length; i++) {
+	// for loop 1 - Ensure password runs for desired length
+	for (var i = 0; i < parameters.passwordLength; i++) {
 		var possibleParameter = getRandom(possibleParameters);
 
 		workingPassword.push(possibleParameter);
 	}
 	
-	// for loop 2 
+	// for loop 2 - Ensure password runs until each required character type is included
 	for (var i = 0; i < requiredParameters.length; i++) {
 		workingPassword[i] = requiredParameters[i];
 	}
 
 	// Convert workingPassword into a string and generatePassword
 
-	return workingPassword.join(", ");
+	return workingPassword.join("");
 }
 
