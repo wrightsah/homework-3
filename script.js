@@ -13,9 +13,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-//Define variables 
-
-var passwordLength
+// Define variables 
 
 //Define arrays for data
 
@@ -90,65 +88,62 @@ function getPasswordParameters() {
 	return passwordParameters;
 }
 
+// Function - Get random element from an array
+function getRandom(arr) {
+	var randIndex = Math.floor(Math.random() * arr.length);
+	var randElement = arr[randIndex];
 
-
-
-// variables for generated characters
-
-var lowercaseCharacter
-var uppercaseCharacter
-var numericCharacter
-var specialCharacter
-
-// random number for loop
-
-var randomNumber
-
-// define function for generating random number 0-3
-
-function randomNumberGenerator() {
-	randomNumber = Math.floor(Math.random() * 4)
-	console.log(randomNumber)
+	console.log(randElement);
+	return randElement;
 }
 
+// Function = Generate password when button is clicked
 
-// loop for generating password characters. 
+function generatePassword() {
+	var parameters = getPasswordParameters();
 
-For (var i = 0; i < passwordLength; i++) {
-	// run random number generator
-	randomNumberGenerator()
+	var workingPassword = [];
 
-	// if random number is 0, get upper case character from array
+	var possibleParameters = [];
 
-	if (randomNumber === 0) {
-		uppercaseCharacter = uppercaseArray[Math.floor(Math.random() * uppercaseArray.length)];
-		// test if working
-		console.log("Generated UC =" + uppercaseCharacter)
+	var requiredParameters = [];
+
+	// determine which characters are going to be part of generated password
+
+	if (parameters.includeLowercase) {
+		possibleParameters = possibleParameters.concat(lowercaseArray);
+		requiredParameters.push(getRandom(lowercaseArray));
+	}
+
+	if (parameters.includeUppercase) {
+		possibleParameters = possibleParameters.concat(uppercaseArray);
+		requiredParameters.push(getRandom(uppercaseArray));
+	}
+
+	if (parameters.includeNumericCharacter) {
+		possibleParameters = possibleParameters.concat(numericCharacterArray);
+		requiredParameters.push(getRandom(numericCharacterArray));
+	}
+
+	if (parameters.includeSpecialCharacter) {
+		possibleParameters = possibleParameters.concat(specialCharacterArray);
+		requiredParameters.push(getRandom(specialCharacterArray));
 	}
 	
-	// if random number is 1, get lower case character from array
-		else if (randomNumber === 1) {
-			lowercaseCharacter = lowercaseArray[Math.floor(Math.random() * lowercaseArray.length)];
-			// test if working
-			console.log("Generated LC =" + lowercaseCharacter)
-		}	 
-	
-	// if random number is 2, get numeric character from array
-		else if (randomNumber === 2) {
-			numericCharacter = numericCharArray[Math.floor(Math.random() * numericCharArray.length)];
-			// test if working
-			console.log("Generated NC =" + numericCharacter)
-		}
-	
-	// if random number is 3, get special character from array
-		else if (randomNumber === 3) {
-			specialCharacter = specialCharArray[Math.floor(Math.random() * specialCharArray.length)];
-			// test if working
-			console.log("Generated SC =" + specialCharacter)
-		}
-	
-	// add selected character to passwordoutput string
+	// for loop 1
+	for (var i = 0; i < parameters.length; i++) {
+		var possibleParameter = getRandom(possibleParameters);
 
+		workingPassword.push(possibleParameter);
+	}
+	
+	// for loop 2 
+	for (var i = 0; i < requiredParameters.length; i++) {
+		workingPassword[i] = requiredParameters[i];
+	}
 
+	// Convert workingPassword into a string and generatePassword
 
+	return workingPassword.join(", ");
 }
+
