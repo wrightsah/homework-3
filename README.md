@@ -8,13 +8,25 @@ This site was built to generate a secure password that incorporates uppercase ch
 
 ### Instructions: 
 
-The user will select the password length (between 8 and 128 characters) and 
+The user will press "Generate Password" to the being the process. Confirmation boxes will prompt for password length (between 8 and 128 characters) and types of characters to include. 
+
+<!-- screenshot 1 -->
+
+![parameters](assets/parameters.png)
+
+### Parameters:
+
+Required parameters are established within the code to ensure that prompts are answered appropriately. 
+
+For example if a user selects a password that is too short (< 7 characters), an error message will be returned. 
+
+<!-- screenshot 2 -->
+
+![error](assets/error.png)
 
 ## Requirements
 
 This website requires a web browser such as Safari, Firefox, Chrome, or Opera to view and run. 
-
-<!-- insert screenshots of prompts and finished password -->
 
 ## Credits
 
