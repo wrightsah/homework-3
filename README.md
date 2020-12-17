@@ -2,7 +2,7 @@
 
 ## The Project
 
-[View Application Here](wrightsah.github.io/homework-3)
+![View Application Here](https://wrightsah.github.io/homework-3/)
 
 This site was built to generate a secure password that incorporates uppercase characters, lowercase characters, numeric characters, and special characters. 
 
